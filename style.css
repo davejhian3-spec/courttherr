@@ -1610,26 +1610,227 @@ color:white;
 ========================= */
 
 
+
+
 .realistic-petal{
 
 
-    position:fixed;
+position:fixed;
 
 
-    top:-50px;
+top:-50px;
 
 
-    z-index:9999;
+background:
 
 
-    pointer-events:none;
+radial-gradient(
+ellipse at center,
+#f8c8d8 0%,
+#e89ab5 70%,
+#d77f9c 100%
+);
 
 
-    object-fit:contain;
+border-radius:
+
+80% 20% 80% 20%;
 
 
-    animation:
-    realisticFall linear forwards;
+z-index:9999;
+
+
+pointer-events:none;
+
+
+box-shadow:
+
+0 5px 15px rgba(0,0,0,.15);
+
+
+
+animation:
+
+petalPhysics linear forwards;
+
+
+}
+
+
+
+@keyframes petalPhysics{
+
+
+0%{
+
+
+transform:
+
+translate3d(0,-50px,0)
+
+rotateX(0deg)
+
+rotateY(0deg);
+
+
+opacity:0;
+
+
+}
+
+
+
+10%{
+
+
+opacity:1;
+
+
+}
+
+
+
+30%{
+
+
+transform:
+
+translate3d(var(--x),30vh,0)
+
+rotateX(180deg)
+
+rotateY(90deg);
+
+
+}
+
+
+
+60%{
+
+
+transform:
+
+translate3d(calc(var(--x) * -1),65vh,0)
+
+rotateX(360deg)
+
+rotateY(180deg);
+
+
+}
+
+
+
+100%{
+
+
+transform:
+
+translate3d(0,115vh,0)
+
+rotate(var(--rotate))
+
+rotateY(360deg);
+    
+
+opacity:0;
+
+
+}
+
+
+}
+
+
+/* realistic wind falling */
+
+@keyframes naturalPetalFall{
+
+
+0%{
+
+
+    transform:
+
+    translate3d(0,-80px,0)
+
+    rotate(0deg);
+
+
+    opacity:0;
+
+
+}
+
+
+
+10%{
+
+
+    opacity:1;
+
+
+}
+
+
+
+30%{
+
+
+    transform:
+
+    translate3d(var(--wind),30vh,0)
+
+    rotate(180deg);
+
+
+}
+
+
+
+60%{
+
+
+    transform:
+
+    translate3d(calc(var(--wind) * -1),65vh,0)
+
+    rotate(360deg);
+
+
+}
+
+
+
+85%{
+
+
+    transform:
+
+    translate3d(var(--wind),90vh,0)
+
+    rotate(540deg);
+
+
+}
+
+
+
+100%{
+
+
+    transform:
+
+    translate3d(0,115vh,0)
+
+    rotate(var(--rotate));
+
+
+    opacity:0;
+
+
+}
 
 
 }
@@ -1699,6 +1900,8 @@ color:white;
 
 
 }
+
+
 
 
 }
